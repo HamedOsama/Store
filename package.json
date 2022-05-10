@@ -1,16 +1,24 @@
 {
-  "name": "Store",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev" : "nodemon src/index.ts",
-    "bulid" : "tsc",
-    "start" : "npm run bulid && node dist/index.js"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.16",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.4"
-  }
+    "name": "Store",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev": "nodemon src/index.ts",
+        "bulid": "tsc",
+        "start": "npm run bulid && node dist/index.js",
+        "format": "prettier --write src/**/*.ts",
+        "lint": "eslint src/**/*.ts --fix"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.23.0",
+        "@typescript-eslint/parser": "^5.23.0",
+        "eslint": "^8.15.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "nodemon": "^2.0.16",
+        "prettier": "^2.6.2",
+        "ts-node": "^10.7.0",
+        "typescript": "^4.6.4"
+    }
 }
