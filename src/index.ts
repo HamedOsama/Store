@@ -3,7 +3,10 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import errorMiddleware from './middleware/error.middleware';
-const port = 3000;
+import config from './config';
+import db from './database';
+// console.log(config);
+const port = config.port || 3200;
 
 const app = express();
 // middleware to parse incoming request
@@ -25,7 +28,7 @@ app.use(
 
 // get request
 app.get('/', (req, res) => {
-    throw new Error('ERROR EXIST');
+    // throw new Error('ERROR EXIST');
 
     res.send('hello world!');
 });
@@ -33,6 +36,20 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     res.send('hello world from post!');
     console.log(req.body);
+});
+
+// test db
+db.connect().then((client) => {
+    return client
+        .query('SELECT NOW()')
+        .then((res) => {
+            client.release();
+            console.log(res.rows);
+        })
+        .catch((err) => {
+            client.release();
+            console.log(err.stack);
+        });
 });
 
 app.use(errorMiddleware);
