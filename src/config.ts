@@ -9,6 +9,8 @@ const {
     PGDATABASE_TEST,
     user,
     password,
+    BCRYPT_PASSWORD,
+    SALT_ROUNDS,
 } = process.env;
 // console.log(process.env);
 export default {
@@ -18,4 +20,6 @@ export default {
     database: node_env == 'dev' ? PGDATABASE : PGDATABASE_TEST,
     user: user,
     password: password,
+    pepper: BCRYPT_PASSWORD,
+    salt: SALT_ROUNDS,
 };
