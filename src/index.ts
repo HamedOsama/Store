@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import errorMiddleware from './middleware/error.middleware';
 import config from './config';
+import routes from './routes/index';
 import db from './database';
 // console.log(config);
 const port = config.port || 3200;
@@ -32,11 +33,12 @@ app.get('/', (req, res) => {
 
     res.send('hello world!');
 });
+app.use('/api', routes);
 // post request
-app.post('/', (req, res) => {
-    res.send('hello world from post!');
-    console.log(req.body);
-});
+// app.post('/', (req, res) => {
+//     res.send('hello world from post!');
+//     console.log(req.body);
+// });
 
 // test db
 // db.connect().then((client) => {

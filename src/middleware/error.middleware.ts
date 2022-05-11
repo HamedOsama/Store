@@ -2,7 +2,7 @@ import { NextFunction, Response, Request } from 'express';
 import Error from '../interface/error.interface';
 const errorMiddleware = (
     error: Error,
-    req: Request,
+    _req: Request,
     res: Response,
     next: NextFunction
 ) => {

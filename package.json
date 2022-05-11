@@ -5,9 +5,9 @@
     "license": "MIT",
     "scripts": {
         "dev": "nodemon src/index.ts",
-        "bulid": "tsc",
-        "start": "npm run bulid && node dist/index.js",
-        "test": "npm run bulid && jasmine",
+        "build": "tsc",
+        "start": "npm run build && node dist/index.js",
+        "test": "npm run build && jasmine",
         "format": "prettier --write src/**/*.ts",
         "lint": "eslint src/**/*.ts --fix"
     },
