@@ -5,7 +5,7 @@ import config from '../config';
 
 const userModel = new UserModel();
 
-export const create = async function (
+export const signUp = async function (
     req: Request,
     res: Response,
     next: NextFunction
@@ -90,7 +90,7 @@ export const del = async function (
         next(error);
     }
 };
-export const authenticate = async function (
+export const signIn = async function (
     req: Request,
     res: Response,
     next: NextFunction

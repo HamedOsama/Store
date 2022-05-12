@@ -13,7 +13,6 @@ const {
     SALT_ROUNDS,
     TOKEN_SECRET,
 } = process.env;
-// console.log(process.env);
 export default {
     port: port,
     host: PGHOST,

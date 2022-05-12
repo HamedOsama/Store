@@ -6,15 +6,15 @@ const routes = Router();
 routes
     .route('/')
     .get(authenticationMiddleware, controllers.getAll)
-    .post(controllers.create);
+    .post(controllers.signUp);
 
 routes
     .route('/:id')
-    .get(controllers.getUser)
-    .patch(controllers.update)
-    .delete(controllers.del);
+    .get(authenticationMiddleware, controllers.getUser)
+    .patch(authenticationMiddleware, controllers.update)
+    .delete(authenticationMiddleware, controllers.del);
 
-routes.route('/authenticate').post(controllers.authenticate);
+routes.route('/signin').post(controllers.signIn);
 // routes.get(':id', controllers.getUser);
 // routes.patch('/update-user', controllers.update);
 // routes.delete('/delete-user', controllers.del);

@@ -7,8 +7,6 @@ const hashPass = (password: string) => {
     const salt = +(config.salt as string);
     return bcrypt.hashSync(`${password}${config.pepper}`, salt);
 };
-// console.log(hashPass('$2b$10$1X19t7oHx7oJiAGkrQmwaeXiS2mUopL41wwtzwi93uvZpUN1r4ZK2'));
-// console.log(hashPass('Omar292002!'));
 class UserModel {
     // create
     async create(u: User): Promise<User> {
@@ -46,7 +44,7 @@ class UserModel {
             const result = await connection.query(sql);
             //release connection
             connection.release();
-            // return created user
+            // return all users
             return result.rows;
         } catch (error) {
             throw new Error(
@@ -65,7 +63,7 @@ class UserModel {
             const result = await connection.query(sql, [id]);
             //release connection
             connection.release();
-            // return created user
+            // return specific user
             return result.rows[0];
         } catch (error) {
             throw new Error(
@@ -95,7 +93,7 @@ class UserModel {
             ]);
             //release connection
             connection.release();
-            // return created user
+            // return updated user
             return result.rows[0];
         } catch (error) {
             throw new Error(
@@ -116,7 +114,7 @@ class UserModel {
             const result = await connection.query(sql, [id]);
             //release connection
             connection.release();
-            // return created user
+            // return deleted user
             return result.rows[0];
         } catch (error) {
             throw new Error(
