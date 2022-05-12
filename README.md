@@ -22,10 +22,8 @@ npm install
 - Connect to the databases and grant all privileges
     - Grant for dev database
         - `\c store_dev`
-        - `GRANT ALL PRIVILEGES ON DATABASE store_dev TO store_user;`
     - Grant for test database
         - `\c store_test`
-        - `GRANT ALL PRIVILEGES ON DATABASE store_test TO store_user;`
       
       
  # environment varibales  
