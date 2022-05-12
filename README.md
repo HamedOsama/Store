@@ -11,25 +11,34 @@ This project was structured from scratch, with ZERO starter files.
 ```bash
 npm install
 ```
-
-2. create .env file which contains the following parameters:
+2. create user in database
+**Create user**
+CREATE USER full_stack_user WITH PASSWORD 'Pass1234';
+3. create .env file which contains the following parameters:
 
 ```ts
-POSTGRES_HOST = localhost;
-POSTGRES_DB = POSTGRES_TEST_DB = POSTGRES_USER = postgres;
-POSTGRES_PASSWORD = ENV = dev;
-BCRYPT_PASSWORD = your - secret - password;
-SALT_ROUNDS = 10;
-TOKEN_SECRET = your - secret - token;
+port=3000
+Node_ENV=dev
+# setting database connection infromation 
+PGHOST=localhost
+PGPORT=5432
+PGDATABASE=store_dev
+PGDATABASE_TEST=store_test
+PGUSER=full_stack_user
+PGPASSWORD=Pass1234
+#password slat
+BCRYPT_PASSWORD=your-secret-password
+SLAT_ROUNDS=10
+TOKEN_SECRET=your-secret-token
 ```
 
-3.create database
+4.create database
 
 ```bash
 db-migrate up
 ```
 
-4. run server
+5. run server
 
 ```bash
 yarn run dev
