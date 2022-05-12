@@ -11,12 +11,23 @@ This project was structured from scratch, with ZERO starter files.
 ```bash
 npm install
 ```
-2. create user in database
-# **Create user**
-# run with psql
-```bash
-CREATE USER full_stack_user WITH PASSWORD 'Pass1234';
-```
+2. ## PostgresSQL for DB
+
+- connect to the default postgres database with postgres user `psql -U postgres`
+- In psql run the following to create a user 
+ ```bash
+    - `CREATE USER full_stack_user WITH PASSWORD 'pass1234';`
+    ```
+- In psql run the following to create the dev and test database
+    - `CREATE DATABASE store_dev;`
+    - `CREATE DATABASE store_test;`
+- Connect to the databases and grant all privileges
+    - Grant for dev database
+        - `\c store_dev`
+        - `GRANT ALL PRIVILEGES ON DATABASE store_dev TO store_user;`
+    - Grant for test database
+        - `\c store_test`
+        - `GRANT ALL PRIVILEGES ON DATABASE store_test TO store_user;`
 3. create .env file which contains the following parameters:
 
 ```ts
@@ -28,14 +39,14 @@ PGPORT=5432
 PGDATABASE=store_dev
 PGDATABASE_TEST=store_test
 PGUSER=full_stack_user
-PGPASSWORD=Pass1234
+PGPASSWORD=pass1234
 #password slat
 BCRYPT_PASSWORD=your-secret-password
 SLAT_ROUNDS=10
 TOKEN_SECRET=your-secret-token
 ```
 
-4.create database
+4.create database migrations
 
 ```bash
 db-migrate up
