@@ -12,8 +12,11 @@ This project was structured from scratch, with ZERO starter files.
 npm install
 ```
 2. create user in database
-**Create user**
+# **Create user**
+# run with psql
+```bash
 CREATE USER full_stack_user WITH PASSWORD 'Pass1234';
+```
 3. create .env file which contains the following parameters:
 
 ```ts
