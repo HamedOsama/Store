@@ -10,7 +10,7 @@ routes.get(
     controllers.completedOrders
 );
 routes.get(
-    '/getProductsByCategory',
+    '/getProductsByCategory:category',
     authenticationMiddleware,
     controllers.productsByCategory
 );
