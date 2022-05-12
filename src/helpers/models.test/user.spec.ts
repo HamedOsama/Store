@@ -17,7 +17,4 @@ describe('Testing user model', (): void => {
     it('Delete method should be defined', (): void => {
         expect(userObject.del).toBeDefined();
     });
-    // it('authenticate method should be defined', (): void => {
-    //     expect(userObject.authenticate).toBeDefined();
-    // });
 });

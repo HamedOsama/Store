@@ -38,7 +38,6 @@ const TestUser = UserCreated(user);
 describe('Testing Handlers of the Users', (): void => {
     it('Endpoint: /users [POST]', async (): Promise<void> => {
         const response = await request.post('/').send(user2);
-        // const response = UserRouter.post('/',userStore.create);
         expect(response.status).toBe(404);
     });
 });
