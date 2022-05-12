@@ -84,6 +84,6 @@ yarn run dev
 
 ### IMPORTANT SCRIPTS
 
-**yarn run dev**
-**yarn run test**
-**yarn run build**
+* **yarn run dev**
+* **yarn run test**
+* **yarn run build**
