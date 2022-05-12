@@ -11,6 +11,7 @@ routes
     .patch(controllers.update)
     .delete(controllers.del);
 
+routes.route('/authenticate').post(controllers.authenticate);
 // routes.get(':id', controllers.getUser);
 // routes.patch('/update-user', controllers.update);
 // routes.delete('/delete-user', controllers.del);

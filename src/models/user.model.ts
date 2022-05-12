@@ -5,7 +5,7 @@ import config from '../config';
 
 const hashPass = (password: string) => {
     const salt = +(config.salt as string);
-    return bcrypt.hashSync(`${password}${config.pepper}`, 10);
+    return bcrypt.hashSync(`${password}${config.pepper}`, salt);
 };
 // console.log(hashPass('$2b$10$1X19t7oHx7oJiAGkrQmwaeXiS2mUopL41wwtzwi93uvZpUN1r4ZK2'));
 // console.log(hashPass('Omar292002!'));
@@ -125,6 +125,31 @@ class UserModel {
         }
     }
     // authenticate user
+    async authenticate(email: string, password: string) {
+        try {
+            const connection = await db.connect();
+            const sql = `SELECT password FROM users WHERE email=$1`;
+            const result = await connection.query(sql, [email]);
+            if (result.rows.length) {
+                const { password: hashed } = result.rows[0];
+                const isValid = bcrypt.compareSync(
+                    `${password}${config.pepper}`,
+                    hashed
+                );
+                if (isValid) {
+                    const userInfo = await connection.query(
+                        'SELECT id,email,user_name,first_name,last_name FROM users WHERE email =$1',
+                        [email]
+                    );
+                    return userInfo.rows[0];
+                }
+            }
+            connection.release();
+            return null;
+        } catch (error) {
+            throw new Error(`this: ${error}`);
+        }
+    }
 }
 
 export default UserModel;
