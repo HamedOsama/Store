@@ -15,17 +15,15 @@ npm install
 
 - connect to the default postgres database with postgres user `psql -U postgres`
 - In psql run the following to create a user 
-    CREATE USER full_stack_user WITH PASSWORD 'pass1234';
+    `CREATE USER full_stack_user WITH PASSWORD 'pass1234';`
 - In psql run the following to create the dev and test database
     - `CREATE DATABASE store_dev;`
     - `CREATE DATABASE store_test;`
 - Connect to the databases and grant all privileges
     - Grant for dev database
         - `\c store_dev`
-        - `GRANT ALL PRIVILEGES ON DATABASE store_dev TO store_user;`
     - Grant for test database
         - `\c store_test`
-        - `GRANT ALL PRIVILEGES ON DATABASE store_test TO store_user;`
       
       
  # environment varibales  
