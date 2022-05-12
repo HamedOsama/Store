@@ -3,7 +3,7 @@ import TestOrder from '../../routes/api/order-product.routes';
 
 const orderClass = new Order();
 
-describe('Testing product model', (): void => {
+describe('Testing order product model', (): void => {
     it('', async () => {
         expect((await TestOrder).get('/', orderClass.getAll)).toBeTruthy();
         expect((await TestOrder).get('/', orderClass.create)).toBeTruthy();

@@ -3,6 +3,9 @@ import UserModel from '../../models/user.model';
 const userObject = new UserModel();
 
 describe('Testing user model', (): void => {
+    it('CREATE method should be defined', (): void => {
+        expect(userObject.create).toBeDefined();
+    });
     it('getAll method should be defined', (): void => {
         expect(userObject.getAll).toBeDefined();
     });
@@ -11,13 +14,10 @@ describe('Testing user model', (): void => {
         expect(userObject.getUser).toBeDefined();
     });
 
-    it('CREATE method should be defined', (): void => {
-        expect(userObject.create).toBeDefined();
-    });
     it('Delete method should be defined', (): void => {
         expect(userObject.del).toBeDefined();
     });
-    it('authenticate method should be defined', (): void => {
-        expect(userObject.authenticate).toBeDefined();
-    });
+    // it('authenticate method should be defined', (): void => {
+    //     expect(userObject.authenticate).toBeDefined();
+    // });
 });
