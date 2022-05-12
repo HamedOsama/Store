@@ -1,9 +1,12 @@
 import { Router } from 'express';
 import * as controllers from '../../controllers/user.controllers';
-
+import authenticationMiddleware from '../../middleware/authenticate.middleware';
 const routes = Router();
 // api/users
-routes.route('/').get(controllers.getAll).post(controllers.create);
+routes
+    .route('/')
+    .get(authenticationMiddleware, controllers.getAll)
+    .post(controllers.create);
 
 routes
     .route('/:id')
