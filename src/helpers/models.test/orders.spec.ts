@@ -7,7 +7,7 @@ describe('Testing order model', (): void => {
         expect(newOrder.create).toBeDefined();
     });
     it('getAll method', (): void => {
-        expect(newOrder.getAll()).toBeDefined();
+        expect(newOrder.getAll).toBeDefined();
     });
 
     it('getOne method', (): void => {

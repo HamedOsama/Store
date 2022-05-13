@@ -4,7 +4,7 @@ import dashboard from '../../routes/api/dashboard/dashboard.routes';
 const orderClass = new Dashboard();
 
 describe('Testing product model', (): void => {
-    it('', async () => {
+    it('check value of products', async () => {
         expect(
             (await dashboard).get('/', orderClass.productsByCategory)
         ).toBeTruthy();

@@ -3,7 +3,6 @@ import app from '../../index';
 import jwt from 'jsonwebtoken';
 import UserStore from '../../models/user.model';
 import User from '../../types/user.type';
-import UserRouter from '../../routes/api/users.routes';
 
 const request = supertest(app);
 
@@ -37,7 +36,7 @@ const TestUser = UserCreated(user);
 
 describe('Testing Handlers of the Users', (): void => {
     it('Endpoint: /users [POST]', async (): Promise<void> => {
-        const response = await request.post('/').send(user2);
+        const response = await request.post('/users').send(user);
         expect(response.status).toBe(404);
     });
 });
