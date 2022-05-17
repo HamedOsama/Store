@@ -28,11 +28,6 @@ const order: OrderType = {
     user_id: idd || '',
 };
 describe('Testing order model;', (): void => {
-    it('', async () => {
-        expect((await TestOrder).get('/', orderClass.getAll)).toBeTruthy();
-        expect((await TestOrder).get('/:id', orderClass.getOne)).toBeTruthy();
-        expect((await TestOrder).get('/:id', orderClass.del)).toBeTruthy();
-    });
     it('create order', async () => {
         expect((await await req.post('/api/orders').send(order)).status).toBe(
             500

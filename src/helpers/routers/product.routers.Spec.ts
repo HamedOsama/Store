@@ -12,12 +12,6 @@ const product = {
 const productClass = new Product();
 productClass.create(product);
 describe('Testing product model', (): void => {
-    it('initialize get all', async () => {
-        expect((await TestProduct).get('/', productClass.getAll)).toBeTruthy();
-    });
-    it('initialize create ', async () => {
-        expect((await TestProduct).get('/', productClass.create)).toBeTruthy();
-    });
     it('initialize get one ', async () => {
         expect(
             (await TestProduct).get('/:id', productClass.getOne)
