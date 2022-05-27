@@ -14,35 +14,30 @@ const user: User = {
     last_name: 'test',
     password: 'password123',
 };
-let idd: string | undefined;
-const orderClass = new Order();
+const result = userStore.create(user);
+const newOrder = new Order();
 
-userStore.create(user).then(async function (response) {
-    // if (response.id) {
-    idd = response.id;
-    // } else idd = 'sad';
-});
-console.log('zby' + idd);
-const order: OrderType = {
-    status: 'active',
-    user_id: idd || '',
-};
 describe('Testing order model;', (): void => {
+    async () => {
+        newOrder.create({
+            status: 'active',
+            user_id: String((await result).id),
+        });
+    };
     it('create order', async () => {
-        expect((await await req.post('/api/orders').send(order)).status).toBe(
-            500
-        );
+        expect((await await req.post('/api/orders/')).status).toBe(200);
     });
+
     it('get all orders', async () => {
         expect((await req.get('/api/orders')).status).toBe(200);
     });
     it('get one order', async () => {
-        expect((await req.get('/api/orders/2')).status).toBe(500);
+        expect((await req.get('/api/orders/1')).status).toBe(200);
     });
     it('update one order', async () => {
         expect((await req.patch('/api/orders/1')).status).toBe(200);
     });
     it('delete one order', async () => {
-        expect((await req.delete('/api/orders/2')).status).toBe(200);
+        expect((await req.delete('/api/orders/1')).status).toBe(200);
     });
 });
