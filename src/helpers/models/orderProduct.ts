@@ -20,7 +20,7 @@ async () => {
     });
 };
 
-describe('Order Model Test', () => {
+describe('Order product Model Test', () => {
     it('should have a create method [To Create New Order]', () => {
         expect(order.create).toBeDefined();
     });

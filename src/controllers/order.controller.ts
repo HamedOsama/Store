@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import {NextFunction, Request, Response} from 'express';
 import OrderModel from '../models/order.model';
 
 const orderModel = new OrderModel();
@@ -12,8 +12,8 @@ export const create = async function (
         const product = await orderModel.create(req.body);
         res.json({
             status: 'success',
-            data: { ...product },
-            message: 'product Added successfully',
+            data: {...product},
+            message: 'Order Added successfully',
         });
     } catch (error) {
         next(error);
@@ -28,7 +28,7 @@ export const getAll = async function (
         const product = await orderModel.getAll();
         res.json({
             status: 'success',
-            data: { ...product },
+            data: {...product},
             message: 'Data Retrieved successfully',
         });
     } catch (error) {
@@ -140,7 +140,7 @@ export const del = async function (
         const product = await orderModel.del(req.params.id);
         res.json({
             status: 'success',
-            data: { ...product },
+            data: {...product},
             message: 'Data deleted successfully',
         });
     } catch (error) {

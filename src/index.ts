@@ -5,6 +5,9 @@ import rateLimit from 'express-rate-limit';
 import errorMiddleware from './middleware/error.middleware';
 import config from './config';
 import routes from './routes/index';
+import UserModel from './models/user.model';
+import orderModel from './models/order.model';
+
 const port = config.port || 3000;
 const app = express();
 // middleware to parse incoming request
@@ -34,9 +37,24 @@ app.use((req, res) => {
         message: 'go to main',
     });
 });
+
 // listening on port
 app.listen(port, () => {
     console.log(`App running on port ${port}`);
 });
 
+// const user = new UserModel();
+// const order = new orderModel();
+
+// const po = async () => {
+//     const newUser = await user.create({
+//         email: 'hamed@gmail.com',
+//         user_name: 'hamed22',
+//         first_name: 'hamed',
+//         last_name: 'osama',
+//         password: 'testt11@',
+//     });
+//     console.log((await newUser).id);
+// };
+// po();
 export default app;
