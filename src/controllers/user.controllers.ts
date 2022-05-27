@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { NextFunction, Request, Response } from 'express';
+import {NextFunction, Request, Response} from 'express';
 import UserModel from '../models/user.model';
 import config from '../config';
 
@@ -14,7 +14,7 @@ export const signUp = async function (
         const user = await userModel.create(req.body);
         res.json({
             status: 'success',
-            data: { ...user },
+            data: {...user},
             message: 'User created successfully',
         });
     } catch (error) {
@@ -32,7 +32,7 @@ export const getAll = async function (
         const user = await userModel.getAll();
         res.json({
             status: 'success',
-            data: { ...user },
+            data: {...user},
             message: 'Data Retrieved successfully',
         });
     } catch (error) {
@@ -66,7 +66,7 @@ export const update = async function (
         const user = await userModel.update(req.body);
         res.json({
             status: 'success',
-            data: { ...user },
+            data: {...user},
             message: 'Data updated successfully',
         });
     } catch (error) {
@@ -83,7 +83,7 @@ export const del = async function (
         const user = await userModel.del(req.params.id);
         res.json({
             status: 'success',
-            data: { ...user },
+            data: {...user},
             message: 'Data deleted successfully',
         });
     } catch (error) {
@@ -96,10 +96,10 @@ export const signIn = async function (
     next: NextFunction
 ) {
     try {
-        const { email, password } = req.body;
+        const {email, password} = req.body;
         const user = await userModel.authenticate(email, password);
-        const token = jwt.sign({ user }, config.token as unknown as string);
-        if (!user) {
+        const token = jwt.sign({user}, config.token as unknown as string);
+        if (!token) {
             return res.status(401).json({
                 status: 'error',
                 message:
@@ -108,7 +108,7 @@ export const signIn = async function (
         }
         return res.status(200).json({
             status: 'success',
-            data: { ...user, token },
+            data: {...user, token},
             message: 'User authenticated successfully',
         });
     } catch (error) {

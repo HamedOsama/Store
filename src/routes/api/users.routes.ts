@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import {Router} from 'express';
 import * as controllers from '../../controllers/user.controllers';
 import authenticationMiddleware from '../../middleware/authenticate.middleware';
 const routes = Router();

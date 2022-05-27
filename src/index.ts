@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api', routes);
 app.use(errorMiddleware);
-app.use((_req, res) => {
+app.use((req, res) => {
     res.status(404).json({
         message: 'go to main',
     });
